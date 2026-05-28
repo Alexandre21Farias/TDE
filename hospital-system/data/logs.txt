@@ -10,3 +10,8 @@
 [2026-05-28T03:09:01.075-03:00] Exclusão definitiva do paciente 'Carlos Santos' (ID 2) via Web.
 [2026-05-28T03:09:24.392-03:00] Cadastro do médico 'Dr. Daniel Aragão' (ID 2) editado via Web.
 [2026-05-28T03:13:56.493-03:00] Login administrativo realizado com sucesso via Web.
+[2026-05-28T19:51:15-03:00] Base de Médicos substituída pelos integrantes da equipe acadêmica (Alexandre, Vamberto, Daniel, José).
+[2026-05-28T19:52:30-03:00] Paciente 'Carlos Eduardo' (ID 5) alocado no leito 401 sob cuidados do Dr. Alexandre Lima Farias.
+[2026-05-28T19:53:05-03:00] Paciente 'Pedro Albuquerque' (ID 6) alocado no leito 301 sob cuidados do Dr. Daniel Aragão Cerqueira Soares.
+[2026-05-28T19:53:40-03:00] Paciente 'Mariana Santos' (ID 7) alocado no leito 102 sob cuidados do Dr. José Artur Moreira.
+[2026-05-28T19:54:15-03:00] Paciente 'Roberto de Souza' (ID 8) alocado no leito 202 sob cuidados do Dr. Vamberto Alvim Lobo Neto.

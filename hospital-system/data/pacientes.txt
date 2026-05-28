@@ -1,3 +1,7 @@
 1;Ana Silva;34;Apendicite Aguda;101;1;Vermelho;2026-05-25
 3;Maria Souza;68;Insuficiencia Cardiaca;201;0;Vermelho;2026-05-24
 4;Joao Pereira;12;Asma;301;0;Verde;2026-05-27
+5;Carlos Eduardo;42;Hipertensao Grave;401;1;Amarelo;2026-05-28
+6;Pedro Albuquerque;8;Pneumonia Infantil;301;1;Amarelo;2026-05-28
+7;Mariana Santos;29;Crise de Enxaqueca;102;1;Verde;2026-05-28
+8;Roberto de Souza;75;Infarto Agudo do Miocardio;202;1;Vermelho;2026-05-28

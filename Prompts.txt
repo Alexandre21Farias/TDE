@@ -295,3 +295,369 @@ O sistema deve demonstrar:
 * qualidade técnica;
 * criatividade;
 * robustez.
+
+
+linha de marcação do prompt 2
+
+# PROMPT — DOCUMENTAÇÃO COMPLETA E RESUMO DO SISTEMA HOSPITALAR
+
+# OBJETIVO
+
+Você deverá analisar completamente o sistema hospitalar desenvolvido e gerar uma documentação detalhada, organizada e profissional explicando:
+
+* o que foi desenvolvido;
+* por que foi desenvolvido;
+* quais problemas o sistema resolve;
+* como o sistema funciona;
+* quais tecnologias foram utilizadas;
+* como foi pensado o desenvolvimento;
+* quais melhorias foram implementadas;
+* como a arquitetura foi organizada;
+* quais funcionalidades existem;
+* como o projeto evoluiu a partir do código original em C.
+
+A documentação deve funcionar como:
+
+* resumo técnico;
+* relatório do projeto;
+* explicação acadêmica;
+* documentação do sistema;
+* apoio para apresentação.
+
+---
+
+# CONTEXTO DO SISTEMA
+
+O sistema foi desenvolvido como um projeto acadêmico de Programação Imperativa em Linguagem C, voltado para a área da saúde.
+
+A proposta inicial era desenvolver um sistema hospitalar utilizando:
+
+* Structs;
+* Ponteiros;
+* Manipulação de arquivos;
+* Vetores;
+* Funções;
+* Estruturas condicionais;
+* Estruturas de repetição.
+
+Posteriormente, o projeto evoluiu para um sistema híbrido contendo:
+
+* Backend em C;
+* Front-end moderno em HTML, CSS e JavaScript;
+* Dashboard administrativo;
+* Interface web responsiva;
+* Integração entre lógica em C e interface web.
+
+---
+
+# O QUE A DOCUMENTAÇÃO DEVE EXPLICAR
+
+# 1. VISÃO GERAL DO SISTEMA
+
+Explicar:
+
+* objetivo principal;
+* finalidade do sistema;
+* público-alvo;
+* problemas resolvidos;
+* importância do gerenciamento hospitalar.
+
+Mostrar como o sistema ajuda:
+
+* hospitais;
+* clínicas;
+* setores administrativos;
+* controle de pacientes;
+* organização hospitalar.
+
+---
+
+# 2. MOTIVAÇÃO DO PROJETO
+
+Explicar:
+
+* por que o sistema foi criado;
+* quais dificuldades hospitalares motivaram o desenvolvimento;
+* como a tecnologia pode melhorar a organização hospitalar;
+* benefícios da automação hospitalar.
+
+---
+
+# 3. EVOLUÇÃO DO PROJETO
+
+Descrever o passo a passo da evolução do sistema.
+
+Explicar:
+
+* como era o código original;
+* quais limitações existiam;
+* quais melhorias foram feitas;
+* como o sistema foi reorganizado;
+* como o projeto passou de terminal para interface web.
+
+---
+
+# 4. ARQUITETURA DO SISTEMA
+
+Explicar a organização do projeto:
+
+## Backend
+
+* Linguagem C;
+* Funções;
+* Structs;
+* Arquivos `.txt`;
+* Ponteiros;
+* Organização modular.
+
+## Front-end
+
+* HTML;
+* CSS;
+* JavaScript;
+* Interface responsiva;
+* Dashboard hospitalar.
+
+## Integração
+
+Explicar como o front-end conversa com as funcionalidades originalmente desenvolvidas em C.
+
+---
+
+# 5. FUNCIONALIDADES IMPLEMENTADAS
+
+Descrever detalhadamente todas as funcionalidades.
+
+## Login Administrativo
+
+* Controle de acesso;
+* Segurança básica.
+
+## Cadastro de Pacientes
+
+* Registro de pacientes;
+* Informações médicas;
+* Dados hospitalares.
+
+## Gestão de Médicos
+
+* Cadastro;
+* Especialidades;
+* Escalas.
+
+## Controle de Leitos
+
+* Leitos ocupados;
+* Leitos disponíveis;
+* Setores hospitalares.
+
+## Internações
+
+* Entrada e saída;
+* Histórico;
+* Status do paciente.
+
+## Relatórios
+
+* Estatísticas;
+* Indicadores;
+* Dados hospitalares.
+
+## Dashboard
+
+* Indicadores visuais;
+* Informações em tempo real;
+* Painel administrativo.
+
+## Sistema de Busca
+
+* Busca por nome;
+* Busca por ID;
+* Filtros inteligentes.
+
+## Sistema de Arquivos
+
+* Persistência de dados;
+* Salvamento automático;
+* Backup.
+
+---
+
+# 6. MELHORIAS IMPLEMENTADAS
+
+Explicar:
+
+* melhorias no código em C;
+* correções realizadas;
+* otimizações;
+* modularização;
+* organização profissional;
+* melhorias visuais;
+* melhorias de usabilidade.
+
+Mostrar:
+
+* antes e depois;
+* evolução técnica;
+* melhorias de estrutura.
+
+---
+
+# 7. TECNOLOGIAS UTILIZADAS
+
+Explicar o papel de cada tecnologia.
+
+## Linguagem C
+
+Utilizada para:
+
+* lógica principal;
+* manipulação de dados;
+* estruturas;
+* processamento do sistema.
+
+## HTML
+
+Utilizado para:
+
+* estrutura da interface.
+
+## CSS
+
+Utilizado para:
+
+* design;
+* responsividade;
+* identidade visual.
+
+## JavaScript
+
+Utilizado para:
+
+* interatividade;
+* comunicação;
+* funcionalidades dinâmicas.
+
+---
+
+# 8. CONCEITOS DE PROGRAMAÇÃO APLICADOS
+
+Explicar como os conceitos da disciplina foram utilizados:
+
+* Structs;
+* Ponteiros;
+* Vetores;
+* Matrizes;
+* Funções;
+* Loops;
+* Condicionais;
+* Arquivos;
+* Modularização;
+* Manipulação de memória.
+
+---
+
+# 9. DESAFIOS ENFRENTADOS
+
+Explicar:
+
+* dificuldades do desenvolvimento;
+* desafios técnicos;
+* problemas encontrados;
+* soluções aplicadas.
+
+---
+
+# 10. RESULTADOS OBTIDOS
+
+Mostrar:
+
+* melhorias alcançadas;
+* organização do sistema;
+* robustez;
+* funcionalidades;
+* qualidade final do projeto.
+
+---
+
+# 11. DIFERENCIAIS DO SISTEMA
+
+Destacar:
+
+* interface moderna;
+* integração entre C e Web;
+* dashboard;
+* relatórios;
+* modularização;
+* organização profissional;
+* funcionalidades inteligentes.
+
+---
+
+# 12. CONCLUSÃO
+
+Gerar uma conclusão profissional explicando:
+
+* importância do projeto;
+* conhecimentos adquiridos;
+* evolução técnica;
+* impacto acadêmico;
+* importância da tecnologia na saúde.
+
+---
+
+# FORMATO DA RESPOSTA
+
+A documentação deve:
+
+* ser completa;
+* organizada;
+* profissional;
+* bem estruturada;
+* clara;
+* técnica;
+* pronta para apresentação acadêmica.
+
+Utilizar:
+
+* títulos;
+* subtítulos;
+* listas;
+* organização visual;
+* linguagem profissional.
+
+---
+
+# OBJETIVO FINAL
+
+Gerar uma documentação completa e profissional do sistema hospitalar desenvolvido, mostrando:
+
+* visão do projeto;
+* planejamento;
+* desenvolvimento;
+* arquitetura;
+* funcionalidades;
+* evolução;
+* melhorias;
+* resultados obtidos.
+
+A documentação deve demonstrar claramente:
+
+* domínio técnico;
+* qualidade do projeto;
+* organização profissional;
+* aplicação prática da Programação Imperativa.
+
+
+Terceiro e ultimo prompt
+Quero que adicione alguns medicos e pacientes nos arquivos txt 
+
+quero que os medicos sejam apenas o pessoal da minha equipe
+
+Alexandre Lima Farias
+
+Vamberto Alvim Lobo Neto
+
+Daniel Aragão Cerqueira Soares
+
+José Artur Moreira
