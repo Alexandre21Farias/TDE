@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Geral - Sistema Hospitalar Híbrido</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- BARRA LATERAL (SIDEBAR) -->
+        <aside class="sidebar">
+            <div class="brand-section">
+                <span class="brand-icon">🏥</span>
+                <span class="brand-title">HOSPITAL CORE</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item active">
+                        <a href="dashboard.html">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pacientes.html">
+                            <span class="nav-icon">👥</span>
+                            <span class="nav-text">Pacientes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="medicos.html">
+                            <span class="nav-icon">👨‍⚕️</span>
+                            <span class="nav-text">Médicos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="relatorios.html">
+                            <span class="nav-icon">📋</span>
+                            <span class="nav-text">Relatórios</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <div class="user-name" style="font-weight: 600;">Administrador</div>
+                        <div style="font-size: 0.75rem; color: var(--text-secondary);">Portal Web</div>
+                    </div>
+                </div>
+                <a href="#" id="btn-logout" class="btn btn-secondary btn-logout" style="justify-content: center;">
+                    <span>Sair</span> 🚪
+                </a>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            <!-- CABEÇALHO -->
+            <header class="header-panel">
+                <div class="welcome-section">
+                    <h1>Painel de Controle</h1>
+                    <p>Visão geral em tempo real da ocupação e da triagem hospitalar.</p>
+                </div>
+                <div class="header-actions">
+                    <span id="system-time" style="font-weight: 500; font-size: 0.9rem; color: var(--text-secondary);"></span>
+                    <button id="btn-theme-toggle" class="btn btn-secondary" style="padding: 0.5rem 0.8rem; border-radius: 50%;">🌙</button>
+                </div>
+            </header>
+
+            <!-- SEÇÃO DE CARD ESTADOS (KPIs) -->
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <h3>Pacientes</h3>
+                        <div id="stat-total-pacientes" class="kpi-value">-</div>
+                    </div>
+                    <div class="kpi-icon">👥</div>
+                </div>
+                <div class="kpi-card kpi-card-success">
+                    <div class="kpi-info">
+                        <h3>Leitos Livres</h3>
+                        <div id="stat-leitos-livres" class="kpi-value">-</div>
+                    </div>
+                    <div class="kpi-icon">🛏️</div>
+                </div>
+                <div class="kpi-card kpi-card-warning">
+                    <div class="kpi-info">
+                        <h3>Leitos Ocupados</h3>
+                        <div id="stat-leitos-ocupados" class="kpi-value">-</div>
+                    </div>
+                    <div class="kpi-icon">🧑‍🦽</div>
+                </div>
+                <div class="kpi-card kpi-card-danger">
+                    <div class="kpi-info">
+                        <h3>Críticos (Vermelho)</h3>
+                        <div id="stat-criticos" class="kpi-value">-</div>
+                    </div>
+                    <div class="kpi-icon">🚨</div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO DO GRID DE LEITOS (MAPA VISUAL) -->
+            <section class="leitos-section">
+                <h2>Mapa Visual de Ocupação de Leitos</h2>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 2rem; margin-top: -1rem;">
+                    Selecione um leito livre para internar um paciente cadastrado ou clique em um leito ocupado para ver detalhes.
+                </p>
+
+                <!-- SETOR CLÍNICO GERAL (101-110) -->
+                <div class="sector-container">
+                    <div class="sector-title">🔹 Setor Clínico Geral</div>
+                    <div id="grid-sector-clinico" class="leitos-grid">
+                        <!-- Leitos injetados por JS -->
+                    </div>
+                </div>
+
+                <!-- SETOR UTI (201-205) -->
+                <div class="sector-container">
+                    <div class="sector-title">🔸 UTI (Unidade de Terapia Intensiva)</div>
+                    <div id="grid-sector-uti" class="leitos-grid">
+                        <!-- Leitos injetados por JS -->
+                    </div>
+                </div>
+
+                <!-- SETOR PEDIATRIA (301-305) -->
+                <div class="sector-container">
+                    <div class="sector-title">🔹 Setor de Pediatria</div>
+                    <div id="grid-sector-pediatria" class="leitos-grid">
+                        <!-- Leitos injetados por JS -->
+                    </div>
+                </div>
+
+                <!-- SETOR CARDIOLOGIA (401-405) -->
+                <div class="sector-container">
+                    <div class="sector-title">🔸 Setor de Cardiologia</div>
+                    <div id="grid-sector-cardio" class="leitos-grid">
+                        <!-- Leitos injetados por JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- TIMELINE DE AUDITORIA DE LOGS DO SISTEMA -->
+            <section class="leitos-section" style="margin-top: 10px;">
+                <h2>Auditoria e Logs de Atividades Recentes</h2>
+                <div class="timeline" id="dashboard-logs-timeline" style="max-height: 250px; overflow-y: auto; padding-right: 15px;">
+                    <!-- Logs injetados por JS -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- MODAL DE INTERNAÇÃO RÁPIDA (ALOCAÇÃO DE LEITO) -->
+    <div class="modal" id="modal-alocacao">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Internação - Alocar Leito <span id="span-leito-numero"></span></h3>
+                <button class="btn-icon" onclick="fecharAlocacaoModal()" style="font-size: 1.25rem;">❌</button>
+            </div>
+            <form id="form-alocacao">
+                <div class="modal-body">
+                    <input type="hidden" id="alocacao-leito-val">
+                    
+                    <div class="form-group">
+                        <label for="alocacao-paciente">Selecionar Paciente Cadastrado</label>
+                        <select id="alocacao-paciente" class="form-control" required>
+                            <!-- Pacientes disponíveis -->
+                        </select>
+                        <span style="font-size: 0.75rem; color: var(--text-secondary);">Apenas pacientes cadastrados e não internados aparecem aqui.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alocacao-medico">Médico Responsável</label>
+                        <select id="alocacao-medico" class="form-control" required>
+                            <!-- Médicos disponíveis -->
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="fecharAlocacaoModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Confirmar Internação</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE PACIENTE NO LEITO -->
+    <div class="modal" id="modal-leito-info">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Leito <span id="info-leito-numero"></span> - Ocupado</h3>
+                <button class="btn-icon" onclick="fecharInfoModal()" style="font-size: 1.25rem;">❌</button>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <span id="info-paciente-prioridade" class="badge"></span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                    <div>
+                        <strong style="color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase;">Paciente</strong>
+                        <div id="info-paciente-nome" style="font-size: 1.2rem; font-weight: 600; margin-top: 2px;"></div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div>
+                            <strong style="color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase;">Idade</strong>
+                            <div id="info-paciente-idade" style="font-weight: 500; margin-top: 2px;"></div>
+                        </div>
+                        <div>
+                            <strong style="color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase;">Entrada</strong>
+                            <div id="info-paciente-data" style="font-weight: 500; margin-top: 2px;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <strong style="color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase;">Diagnóstico Inicial</strong>
+                        <div id="info-paciente-diagnostico" style="font-weight: 500; margin-top: 2px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="justify-content: space-between;">
+                <button type="button" class="btn btn-secondary" onclick="fecharInfoModal()">Fechar</button>
+                <button type="button" class="btn btn-primary" id="btn-info-alta" style="background-color: var(--color-success);">Conceder Alta ✔️</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Mapeamento dos leitos por setor
+        const SETOR_CLINICO = [101, 102, 103, 104, 105, 106, 107, 108, 109, 110];
+        const SETOR_UTI = [201, 202, 203, 204, 205];
+        const SETOR_PEDIATRIA = [301, 302, 303, 304, 305];
+        const SETOR_CARDIO = [401, 402, 403, 404, 405];
+
+        let pacientesCache = [];
+        let medicosCache = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            inicializarDashboard();
+            document.getElementById('form-alocacao').addEventListener('submit', salvarAlocacao);
+        });
+
+        async function inicializarDashboard() {
+            try {
+                // KPIs
+                const stats = await API.get('/api/dashboard-stats');
+                document.getElementById('stat-total-pacientes').textContent = stats.totalPacientes;
+                document.getElementById('stat-leitos-livres').textContent = stats.leitosLivres;
+                document.getElementById('stat-leitos-ocupados').textContent = stats.leitosOcupados;
+                document.getElementById('stat-criticos').textContent = stats.criticos;
+
+                // Carregar caches para os modais
+                pacientesCache = await API.get('/api/pacientes');
+                medicosCache = await API.get('/api/medicos');
+
+                // Renderizar grids
+                renderizarLeitosGrid('grid-sector-clinico', SETOR_CLINICO);
+                renderizarLeitosGrid('grid-sector-uti', SETOR_UTI);
+                renderizarLeitosGrid('grid-sector-pediatria', SETOR_PEDIATRIA);
+                renderizarLeitosGrid('grid-sector-cardio', SETOR_CARDIO);
+
+                // Renderizar logs
+                const logs = await API.get('/api/logs');
+                const logsContainer = document.getElementById('dashboard-logs-timeline');
+                if (logsContainer) {
+                    logsContainer.innerHTML = '';
+                    logs.forEach(log => {
+                        const item = document.createElement('div');
+                        item.className = 'timeline-item';
+                        
+                        // Parse [Data] Mensagem
+                        const matches = log.match(/^\[(.*?)\] (.*)$/);
+                        if (matches) {
+                            const data = new Date(matches[1]).toLocaleTimeString('pt-BR');
+                            const msg = matches[2];
+                            item.innerHTML = `
+                                <div class="timeline-time">${data}</div>
+                                <div class="timeline-desc">${msg}</div>
+                            `;
+                        } else {
+                            item.innerHTML = `<div class="timeline-desc">${log}</div>`;
+                        }
+                        logsContainer.appendChild(item);
+                    });
+                }
+            } catch (err) {
+                console.error("Falha ao carregar dashboard", err);
+            }
+        }
+
+        function renderizarLeitosGrid(containerId, leitosList) {
+            const grid = document.getElementById(containerId);
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            leitosList.forEach(num => {
+                const card = document.createElement('div');
+                card.className = 'leito-card';
+
+                // Encontrar paciente ativo neste leito
+                const pac = pacientesCache.find(p => p.ativo && p.leito === num);
+
+                if (pac) {
+                    // Ocupado
+                    let pClass = 'ocupado';
+                    if (pac.prioridade === 'Vermelho') pClass = 'ocupado-critico';
+                    else if (pac.prioridade === 'Amarelo') pClass = 'ocupado-urgente';
+
+                    card.classList.add(pClass);
+                    card.innerHTML = `
+                        <div class="leito-number">${num}</div>
+                        <div class="leito-status">${pac.prioridade}</div>
+                        <div class="leito-patient">${pac.nome}</div>
+                    `;
+                    card.addEventListener('click', () => abrirInfoModal(num, pac));
+                } else {
+                    // Livre
+                    card.classList.add('livre');
+                    card.innerHTML = `
+                        <div class="leito-number">${num}</div>
+                        <div class="leito-status" style="color: var(--color-success)">Livre</div>
+                    `;
+                    card.addEventListener('click', () => abrirAlocacaoModal(num));
+                }
+
+                grid.appendChild(card);
+            });
+        }
+
+        // MODAL DE ALOCAÇÃO (INTERNAR)
+        function abrirAlocacaoModal(leito) {
+            document.getElementById('span-leito-numero').textContent = leito;
+            document.getElementById('alocacao-leito-val').value = leito;
+
+            // Popular dropdown de pacientes não internados (ativos = false e leito = 0 ou sem leito)
+            const selPac = document.getElementById('alocacao-paciente');
+            selPac.innerHTML = '';
+            
+            const naoInternados = pacientesCache.filter(p => !p.ativo);
+            if (naoInternados.length === 0) {
+                const opt = document.createElement('option');
+                opt.value = "";
+                opt.textContent = "Nenhum paciente cadastrado disponível";
+                selPac.appendChild(opt);
+            } else {
+                naoInternados.forEach(p => {
+                    const opt = document.createElement('option');
+                    opt.value = p.id;
+                    opt.textContent = `${p.nome} (Idade: ${p.idade} | Prioridade: ${p.prioridade})`;
+                    selPac.appendChild(opt);
+                });
+            }
+
+            // Popular médicos ativos
+            const selMed = document.getElementById('alocacao-medico');
+            selMed.innerHTML = '';
+            const ativos = medicosCache.filter(m => m.ativo);
+            ativos.forEach(m => {
+                const opt = document.createElement('option');
+                opt.value = m.id;
+                opt.textContent = `${m.nome} (${m.especialidade})`;
+                selMed.appendChild(opt);
+            });
+
+            document.getElementById('modal-alocacao').classList.add('open');
+        }
+
+        function fecharAlocacaoModal() {
+            document.getElementById('modal-alocacao').classList.remove('open');
+        }
+
+        async function salvarAlocacao(e) {
+            e.preventDefault();
+            const id_paciente = document.getElementById('alocacao-paciente').value;
+            const id_medico = document.getElementById('alocacao-medico').value;
+            const leito = document.getElementById('alocacao-leito-val').value;
+
+            if (!id_paciente) {
+                alert('Cadastre um paciente primeiro nas abas de gestão.');
+                return;
+            }
+
+            try {
+                await API.post('/api/internacoes', { id_paciente, id_medico, leito });
+                fecharAlocacaoModal();
+                inicializarDashboard();
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        // MODAL DE DETALHES DO LEITO OCUPADO
+        let pacienteSelecionadoParaAlta = null;
+        function abrirInfoModal(leito, pac) {
+            document.getElementById('info-leito-numero').textContent = leito;
+            document.getElementById('info-paciente-nome').textContent = pac.nome;
+            document.getElementById('info-paciente-idade').textContent = `${pac.idade} anos`;
+            document.getElementById('info-paciente-data').textContent = pac.data_cadastro;
+            document.getElementById('info-paciente-diagnostico').textContent = pac.diagnostico;
+
+            const badge = document.getElementById('info-paciente-prioridade');
+            badge.textContent = pac.prioridade;
+            badge.className = 'badge';
+            if (pac.prioridade === 'Vermelho') badge.classList.add('badge-red');
+            else if (pac.prioridade === 'Amarelo') badge.classList.add('badge-yellow');
+            else badge.classList.add('badge-green');
+
+            pacienteSelecionadoParaAlta = pac.id;
+
+            const btnAlta = document.getElementById('btn-info-alta');
+            btnAlta.onclick = concederAltaDireta;
+
+            document.getElementById('modal-leito-info').classList.add('open');
+        }
+
+        function fecharInfoModal() {
+            document.getElementById('modal-leito-info').classList.remove('open');
+        }
+
+        async function concederAltaDireta() {
+            if (!pacienteSelecionadoParaAlta) return;
+            if (confirm('Deseja realmente registrar a alta médica para este paciente e liberar o leito?')) {
+                try {
+                    await API.put(`/api/pacientes/${pacienteSelecionadoParaAlta}`, { ativo: false });
+                    fecharInfoModal();
+                    inicializarDashboard();
+                } catch (err) {
+                    console.error(err);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

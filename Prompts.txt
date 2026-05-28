@@ -1,0 +1,297 @@
+# ATUALIZAÇÃO IMPORTANTE — FRONT-END WEB + INTEGRAÇÃO COM C
+
+# NOVO REQUISITO OBRIGATÓRIO
+
+Além da melhoria completa do código em C, o sistema deverá possuir uma interface moderna desenvolvida em:
+
+* HTML
+* CSS
+* JavaScript
+
+O projeto deve funcionar como um sistema híbrido entre:
+
+* Backend/Lógica em C
+* Front-end Web Responsivo
+
+---
+
+# OBJETIVO DA INTERFACE WEB
+
+Transformar o sistema hospitalar de terminal em uma aplicação visual moderna e organizada.
+
+A interface deve permitir:
+
+* Cadastro de pacientes;
+* Visualização de relatórios;
+* Controle de leitos;
+* Gestão de médicos;
+* Estatísticas;
+* Buscas;
+* Login administrativo;
+* Navegação intuitiva.
+
+---
+
+# INTEGRAÇÃO ENTRE C E FRONT-END
+
+As funcionalidades já existentes em C NÃO devem ser descartadas.
+
+O código em C deve:
+
+* continuar sendo utilizado;
+* ser integrado ao front-end;
+* ser reaproveitado;
+* funcionar como núcleo lógico do sistema.
+
+---
+
+# FORMAS ACEITAS DE INTEGRAÇÃO
+
+A IA pode escolher uma das abordagens abaixo:
+
+## Opção 1 — Integração Direta
+
+O JavaScript envia dados para o código em C utilizando:
+
+* API local;
+* CGI;
+* WebAssembly;
+* Execução de binários;
+* Integração via Node.js;
+* Comunicação por arquivos;
+* Processos locais.
+
+## Opção 2 — Reimplementação das Funções
+
+As funções principais do código em C podem ser convertidas/adaptadas para JavaScript, DESDE QUE:
+
+* a lógica original seja preservada;
+* a estrutura do projeto original seja respeitada;
+* as regras do sistema em C sejam mantidas.
+
+## Opção 3 — Sistema Híbrido
+
+Parte das funções permanecem em C e parte são controladas pelo JavaScript.
+
+---
+
+# IMPORTANTE
+
+As funcionalidades existentes no código em C DEVEM:
+
+* ser utilizadas;
+* ser integradas;
+* ser reaproveitadas;
+* ou adaptadas corretamente para o sistema web.
+
+NÃO ignorar o código original.
+
+---
+
+# FUNCIONALIDADES WEB OBRIGATÓRIAS
+
+## Tela de Login
+
+* Login administrativo;
+* Interface moderna;
+* Controle de acesso.
+
+## Dashboard Hospitalar
+
+Mostrar:
+
+* Total de pacientes;
+* Leitos ocupados;
+* Leitos livres;
+* Pacientes críticos;
+* Estatísticas gerais.
+
+## Gestão de Pacientes
+
+* Cadastro;
+* Edição;
+* Exclusão;
+* Busca;
+* Histórico.
+
+## Gestão de Médicos
+
+* Cadastro;
+* Especialidades;
+* Escalas.
+
+## Controle de Leitos
+
+* Status visual;
+* Separação por setores;
+* Controle de ocupação.
+
+## Relatórios
+
+* Estatísticas;
+* Tabelas;
+* Indicadores;
+* Dados hospitalares.
+
+---
+
+# FRONT-END — REQUISITOS VISUAIS
+
+A interface deve possuir:
+
+* Design moderno;
+* Layout profissional;
+* Responsividade;
+* Dashboard administrativo;
+* Tabelas organizadas;
+* Ícones;
+* Menus laterais;
+* Cards estatísticos;
+* Navegação fluida.
+
+---
+
+# TECNOLOGIAS DO FRONT-END
+
+## HTML
+
+Estrutura das páginas:
+
+* login.html
+* dashboard.html
+* pacientes.html
+* medicos.html
+* relatorios.html
+
+## CSS
+
+Criar:
+
+* Design moderno;
+* Responsivo;
+* Interface administrativa hospitalar.
+
+## JavaScript
+
+Implementar:
+
+* Integrações;
+* Manipulação dinâmica;
+* Comunicação com o sistema em C;
+* Atualização de dados;
+* Eventos;
+* Funcionalidades do sistema.
+
+---
+
+# FUNCIONALIDADES AVANÇADAS SUGERIDAS
+
+## Dashboard Inteligente
+
+* Indicadores em tempo real;
+* Gráficos;
+* Estatísticas hospitalares.
+
+## Alertas Visuais
+
+* Leitos lotados;
+* Pacientes críticos;
+* Emergências.
+
+## Histórico Médico
+
+* Timeline do paciente;
+* Evolução clínica.
+
+## Sistema de Prioridade
+
+* Classificação de risco;
+* Atendimento emergencial.
+
+## Relatórios Inteligentes
+
+* Exportação;
+* Estatísticas automáticas;
+* Relatórios completos.
+
+---
+
+# MELHORIAS NO CÓDIGO EM C
+
+O código em C deve ser:
+
+* corrigido;
+* otimizado;
+* modularizado;
+* modernizado;
+* organizado;
+* comentado;
+* melhorado conforme as exigências acadêmicas.
+
+---
+
+# ESTRUTURA ESPERADA
+
+/hospital-system
+│
+├── backend/
+│   ├── main.c
+│   ├── pacientes.c
+│   ├── pacientes.h
+│   ├── medicos.c
+│   ├── medicos.h
+│   ├── internacoes.c
+│   ├── internacoes.h
+│   ├── login.c
+│   ├── login.h
+│   ├── arquivos.c
+│   ├── arquivos.h
+│   └── utils.c
+│
+├── frontend/
+│   ├── index.html
+│   ├── dashboard.html
+│   ├── pacientes.html
+│   ├── medicos.html
+│   ├── relatorios.html
+│   │
+│   ├── css/
+│   │   └── style.css
+│   │
+│   ├── js/
+│   │   ├── app.js
+│   │   ├── pacientes.js
+│   │   ├── medicos.js
+│   │   └── relatorios.js
+│
+├── data/
+│   ├── pacientes.txt
+│   ├── medicos.txt
+│   ├── internacoes.txt
+│   └── logs.txt
+│
+└── README.md
+
+---
+
+# OBJETIVO FINAL
+
+Entregar um sistema hospitalar completo com:
+
+* Backend em C;
+* Front-end moderno;
+* Integração funcional;
+* Dashboard administrativo;
+* Código limpo;
+* Arquitetura organizada;
+* Funcionalidades hospitalares reais;
+* Estrutura profissional.
+
+O sistema deve demonstrar:
+
+* domínio de Programação Imperativa em C;
+* integração com tecnologias web;
+* organização de software;
+* qualidade técnica;
+* criatividade;
+* robustez.

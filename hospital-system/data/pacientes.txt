@@ -1,0 +1,3 @@
+1;Ana Silva;34;Apendicite Aguda;101;1;Vermelho;2026-05-25
+3;Maria Souza;68;Insuficiencia Cardiaca;201;0;Vermelho;2026-05-24
+4;Joao Pereira;12;Asma;301;0;Verde;2026-05-27

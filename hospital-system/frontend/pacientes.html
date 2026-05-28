@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Pacientes - Sistema Hospitalar Híbrido</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- BARRA LATERAL (SIDEBAR) -->
+        <aside class="sidebar">
+            <div class="brand-section">
+                <span class="brand-icon">🏥</span>
+                <span class="brand-title">HOSPITAL CORE</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="dashboard.html">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="pacientes.html">
+                            <span class="nav-icon">👥</span>
+                            <span class="nav-text">Pacientes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="medicos.html">
+                            <span class="nav-icon">👨‍⚕️</span>
+                            <span class="nav-text">Médicos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="relatorios.html">
+                            <span class="nav-icon">📋</span>
+                            <span class="nav-text">Relatórios</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <div class="user-name" style="font-weight: 600;">Administrador</div>
+                        <div style="font-size: 0.75rem; color: var(--text-secondary);">Portal Web</div>
+                    </div>
+                </div>
+                <a href="#" id="btn-logout" class="btn btn-secondary btn-logout" style="justify-content: center;">
+                    <span>Sair</span> 🚪
+                </a>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            <!-- CABEÇALHO -->
+            <header class="header-panel">
+                <div class="welcome-section">
+                    <h1>Gerenciamento de Pacientes</h1>
+                    <p>Cadastre, modifique, conceda alta ou monitore o histórico clínico de pacientes.</p>
+                </div>
+                <div class="header-actions">
+                    <span id="system-time" style="font-weight: 500; font-size: 0.9rem; color: var(--text-secondary);"></span>
+                    <button id="btn-theme-toggle" class="btn btn-secondary" style="padding: 0.5rem 0.8rem; border-radius: 50%;">🌙</button>
+                </div>
+            </header>
+
+            <!-- BARRA DE AÇÃO (BUSCAS E CADASTRO) -->
+            <section class="action-bar">
+                <div class="search-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="search-pacientes" class="search-input" placeholder="Pesquisar por nome ou diagnóstico...">
+                </div>
+                
+                <div style="display: flex; gap: 10px;">
+                    <select id="filter-prioridade" class="form-control" style="padding: 0.5rem; min-width: 150px;">
+                        <option value="Todos">Todas Prioridades</option>
+                        <option value="Vermelho">Vermelho (Emergência)</option>
+                        <option value="Amarelo">Amarelo (Urgência)</option>
+                        <option value="Verde">Verde (Pouco Urgente)</option>
+                        <option value="Internados">Apenas Internados</option>
+                        <option value="Altas">Apenas Altas</option>
+                    </select>
+
+                    <button class="btn btn-primary" id="btn-novo-paciente">
+                        <span>Novo Paciente</span> ➕
+                    </button>
+                </div>
+            </section>
+
+            <!-- TABELA DE PACIENTES -->
+            <section class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 80px;">ID</th>
+                            <th>Nome</th>
+                            <th>Idade</th>
+                            <th>Leito Alocado</th>
+                            <th>Prioridade</th>
+                            <th>Diagnóstico</th>
+                            <th>Estado</th>
+                            <th style="width: 180px;">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-pacientes-body">
+                        <!-- Pacientes injetados por JS -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- MODAL DE CADASTRO / EDIÇÃO -->
+    <div class="modal" id="modal-paciente">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Novo Paciente</h3>
+                <button class="btn-icon" id="btn-fechar-modal" onclick="document.getElementById('modal-paciente').classList.remove('open')" style="font-size: 1.25rem;">❌</button>
+            </div>
+            <form id="form-paciente">
+                <div class="modal-body">
+                    <input type="hidden" id="paciente-id">
+                    
+                    <div class="form-group">
+                        <label for="paciente-nome">Nome Completo</label>
+                        <input type="text" id="paciente-nome" class="form-control" placeholder="Ex: Ana Maria da Silva" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paciente-idade">Idade</label>
+                        <input type="number" id="paciente-idade" class="form-control" placeholder="Ex: 34" min="0" max="150" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paciente-diagnostico">Diagnóstico</label>
+                        <input type="text" id="paciente-diagnostico" class="form-control" placeholder="Ex: Pneumonia bacteriana" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paciente-prioridade">Classificação de Risco (Manchester)</label>
+                        <select id="paciente-prioridade" class="form-control" required>
+                            <option value="Verde" style="color: green; font-weight: 600;">Verde (Pouco Urgente)</option>
+                            <option value="Amarelo" style="color: orange; font-weight: 600;">Amarelo (Urgente)</option>
+                            <option value="Vermelho" style="color: red; font-weight: 600;">Vermelho (Emergência)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paciente-leito">Leito Inicial (Opcional - 0 para Sem Leito)</label>
+                        <input type="number" id="paciente-leito" class="form-control" placeholder="Ex: 101" min="0" value="0">
+                        <span style="font-size: 0.75rem; color: var(--text-secondary);">Ao definir um leito inicial ativo, uma internação padrão será criada automaticamente.</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="btn-cancelar">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Cadastro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DE TIMELINE CLÍNICA -->
+    <div class="modal" id="modal-timeline">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Histórico Clínico: <span id="timeline-paciente-name"></span></h3>
+                <button class="btn-icon" id="btn-fechar-timeline" onclick="document.getElementById('modal-timeline').classList.remove('open')" style="font-size: 1.25rem;">❌</button>
+            </div>
+            <div class="modal-body">
+                <div class="timeline" id="timeline-content">
+                    <!-- Timeline injetada por JS -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="document.getElementById('modal-timeline').classList.remove('open')">Fechar Histórico</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/pacientes.js"></script>
+</body>
+</html>

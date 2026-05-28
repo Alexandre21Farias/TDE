@@ -1,0 +1,12 @@
+[2026-05-27T10:00:00-03:00] Sistema inicializado.
+[2026-05-27T10:15:32-03:00] Login efetuado com sucesso pelo Administrador.
+[2026-05-27T11:30:00-03:00] Paciente Ana Silva cadastrado com sucesso.
+[2026-05-27T14:45:10-03:00] Medico Dr. Ricardo Oliveira cadastrado com sucesso.
+[2026-05-28T03:05:41.209-03:00] Login administrativo realizado com sucesso via Web.
+[2026-05-28T03:08:33.447-03:00] Cadastro do paciente 'Roberto Lima' (ID 5) atualizado via Web.
+[2026-05-28T03:08:49.199-03:00] Exclusão definitiva do paciente 'Roberto Lima' (ID 5) via Web.
+[2026-05-28T03:08:52.787-03:00] Alta médica concedida ao paciente 'Joao Pereira' (ID 4) via Web.
+[2026-05-28T03:08:57.185-03:00] Alta médica concedida ao paciente 'Maria Souza' (ID 3) via Web.
+[2026-05-28T03:09:01.075-03:00] Exclusão definitiva do paciente 'Carlos Santos' (ID 2) via Web.
+[2026-05-28T03:09:24.392-03:00] Cadastro do médico 'Dr. Daniel Aragão' (ID 2) editado via Web.
+[2026-05-28T03:13:56.493-03:00] Login administrativo realizado com sucesso via Web.

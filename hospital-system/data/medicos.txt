@@ -1,0 +1,4 @@
+1;Dr. Ricardo Oliveira;Cardiologia;CRM12345;Segunda a Sexta 08-16h;1
+2;Dr. Daniel Aragão;Pediatria;CRM67890;Tercas e Quintas 07-19h;1
+3;Dr. Marcos Costa;UTI / Intensivista;CRM11223;Plantonista 24h;1
+4;Dra. Juliana Mendes;Clinico Geral;CRM44556;Seg/Qua/Sex 13-19h;1

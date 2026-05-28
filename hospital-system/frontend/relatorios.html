@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indicadores e Relatórios - Sistema Hospitalar Híbrido</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- BARRA LATERAL (SIDEBAR) -->
+        <aside class="sidebar">
+            <div class="brand-section">
+                <span class="brand-icon">🏥</span>
+                <span class="brand-title">HOSPITAL CORE</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="dashboard.html">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pacientes.html">
+                            <span class="nav-icon">👥</span>
+                            <span class="nav-text">Pacientes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="medicos.html">
+                            <span class="nav-icon">👨‍⚕️</span>
+                            <span class="nav-text">Médicos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="relatorios.html">
+                            <span class="nav-icon">📋</span>
+                            <span class="nav-text">Relatórios</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <div class="user-name" style="font-weight: 600;">Administrador</div>
+                        <div style="font-size: 0.75rem; color: var(--text-secondary);">Portal Web</div>
+                    </div>
+                </div>
+                <a href="#" id="btn-logout" class="btn btn-secondary btn-logout" style="justify-content: center;">
+                    <span>Sair</span> 🚪
+                </a>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            <!-- CABEÇALHO -->
+            <header class="header-panel">
+                <div class="welcome-section">
+                    <h1>Estatísticas e Relatórios</h1>
+                    <p>Auditorias hospitalares, indicadores gerais e exportação de dados.</p>
+                </div>
+                <div class="header-actions">
+                    <span id="system-time" style="font-weight: 500; font-size: 0.9rem; color: var(--text-secondary);"></span>
+                    <button id="btn-theme-toggle" class="btn btn-secondary" style="padding: 0.5rem 0.8rem; border-radius: 50%;">🌙</button>
+                </div>
+            </header>
+
+            <!-- KPI INDICADORES -->
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <h3>Pacientes Totais</h3>
+                        <div id="rep-total-pacientes" class="kpi-value">-</div>
+                    </div>
+                    <div class="kpi-icon">👥</div>
+                </div>
+                <div class="kpi-card kpi-card-success">
+                    <div class="kpi-info">
+                        <h3>Taxa de Ocupação</h3>
+                        <div id="rep-leitos-ocupados" class="kpi-value">-</div>
+                    </div>
+                    <div class="kpi-icon">🛏️</div>
+                </div>
+                <div class="kpi-card kpi-card-warning">
+                    <div class="kpi-info">
+                        <h3>Médicos Ativos</h3>
+                        <div id="rep-total-medicos" class="kpi-value">-</div>
+                    </div>
+                    <div class="kpi-icon">👨‍⚕️</div>
+                </div>
+                <div class="kpi-card kpi-card-danger">
+                    <div class="kpi-info">
+                        <h3>Internações Registradas</h3>
+                        <div id="rep-total-internacoes" class="kpi-value">-</div>
+                    </div>
+                    <div class="kpi-icon">📋</div>
+                </div>
+            </section>
+
+            <!-- CONTAINER DUPLO: STATS SUMÁRIO + EXPORTADORES -->
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start;">
+                <!-- Estatísticas Médicas e Unidade -->
+                <section class="leitos-section">
+                    <h2>Resumo Estatístico da Unidade</h2>
+                    <table class="data-table" style="box-shadow: none; border: 1px solid rgba(0, 0, 0, 0.05); border-radius: var(--border-radius-sm);">
+                        <thead>
+                            <tr>
+                                <th>Indicador Clínica</th>
+                                <th>Métrica / Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-resumo-pacientes">
+                            <!-- Injetado por JS -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Exportação de Dados -->
+                <section class="leitos-section" style="display: flex; flex-direction: column; gap: 15px;">
+                    <h2>Exportação</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: -0.5rem; margin-bottom: 0.5rem;">
+                        Baixe cópias consolidadas em formato planilha (CSV) compatível com Excel.
+                    </p>
+                    <button class="btn btn-primary" id="btn-export-pacientes" style="width: 100%; justify-content: center; padding: 0.8rem;">
+                        Exportar Pacientes (CSV) 💾
+                    </button>
+                    <button class="btn btn-secondary" id="btn-export-medicos" style="width: 100%; justify-content: center; padding: 0.8rem;">
+                        Exportar Médicos (CSV) 💾
+                    </button>
+                </section>
+            </div>
+
+            <!-- AUDITORIA DO HISTÓRICO DE INTERNAÇÕES -->
+            <section class="leitos-section">
+                <h2>Histórico Geral de Internações (Auditoria)</h2>
+                <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: -1rem; margin-bottom: 1.5rem;">
+                    Exibe a listagem cronológica das últimas 10 internações e altas gerenciadas pelo sistema híbrido.
+                </p>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 80px;">Registro</th>
+                            <th>Paciente</th>
+                            <th>Médico Responsável</th>
+                            <th>Leito</th>
+                            <th>Data de Entrada</th>
+                            <th>Estado da Internação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-auditoria-internacoes">
+                        <!-- Injetado por JS -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/relatorios.js"></script>
+</body>
+</html>
